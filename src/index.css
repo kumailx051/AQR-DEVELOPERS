@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Dark Theme with Cyan Accents */
+
+@layer base {
+  :root {
+    --background: 220 27% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 191 91% 56%;
+    --primary-foreground: 220 27% 8%;
+    --primary-glow: 191 91% 66%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 210 10% 65%;
+
+    --accent: 191 91% 56%;
+    --accent-foreground: 220 27% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 191 91% 56%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-section: linear-gradient(180deg, hsl(220 27% 8%), hsl(220 20% 12%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 12%), hsl(220 27% 8%));
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 27% 4% / 0.8);
+    
+    /* Advanced gradient backgrounds */
+    --gradient-mesh: radial-gradient(ellipse 80% 80% at 50% -20%, hsl(var(--primary) / 0.3), transparent),
+                     radial-gradient(ellipse 80% 80% at 80% 60%, hsl(var(--secondary) / 0.2), transparent),
+                     radial-gradient(ellipse 80% 80% at 20% 80%, hsl(var(--accent) / 0.3), transparent);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Mobile performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* Mobile performance optimizations */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Optimize scrolling on mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce animations on slower devices */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile responsive improvements */
+  @media (max-width: 768px) {
+    /* Optimize touch targets */
+    button, 
+    input[type="button"], 
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Improve text readability on mobile */
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
+  /* Prevent layout shift */
+  img, 
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* GPU acceleration for animations */
+  .animate-fade-in,
+  .animate-float,
+  .animate-scale-in {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
