@@ -20,6 +20,15 @@
   </head>
 
   <body>
+<script>
+      // Redirect to /#/ if not already using hash routing
+      if (
+        location.pathname.endsWith('/AQR-DEVELOPERS/') &&
+        !location.hash
+      ) {
+        location.replace(location.pathname + '#/');
+      }
+    </script>
     <div id="root"></div>
   </body>
 </html>
